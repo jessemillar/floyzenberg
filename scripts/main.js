@@ -1,4 +1,7 @@
-var canvas = document.getElementById('original')
+var originalCanvas = document.getElementById('original')
+var originalCtx = originalCanvas.getContext('2d')
+
+var canvas = document.getElementById('manipulated')
 var ctx = canvas.getContext('2d')
 
 var database = new Array()
@@ -7,18 +10,22 @@ function init()
 {
 	var image = new Image()
 		image.onload = loaded // No parenthesis so that we can pass the image as a parameter
-		image.src = 'test_images/puppy.jpg'
+		image.src = 'test_images/cube.jpg'
 }
 
 function loaded(event)
 {
 	var image = event.target // Save the source image as a variable
 
-	// Resize the canvas to reflect the size of the source image
+	// Resize the canvases to reflect the size of the source image
+	originalCanvas.width = image.width
+	originalCanvas.height = image.height
 	canvas.width = image.width
 	canvas.height = image.height
+	canvas.style.top = image.height;
 
-	ctx.drawImage(image, 0, 0) // Display the original image on the left side of the canvas
+	originalCtx.drawImage(image, 0, 0) // Display the original image in the left canvas
+	ctx.drawImage(image, 0, 0) // Display the original image in the right canvas for manipulation and display
 
 	var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height) // Get pixel data for the whole canvas
 
