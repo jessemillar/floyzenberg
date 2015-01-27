@@ -8,6 +8,8 @@ var database = new Array()
 
 function load()
 {
+	database = new Array() // Start fresh so we can load another image without refreshing the page
+
 	var image = new Image() // This is what we'll pass along to other functions
 
 	var file = document.getElementById('load').files[0]
