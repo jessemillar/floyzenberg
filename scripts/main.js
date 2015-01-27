@@ -7,7 +7,7 @@ function init()
 {
 	var image = new Image()
 		image.onload = loaded // No parenthesis so that we can pass the image as a parameter
-		image.src = 'puppy.jpg'
+		image.src = 'test_images/puppy.jpg'
 }
 
 function loaded(event)
@@ -104,3 +104,11 @@ function drawImageData(data, container) // Run after convert
 			container.data[i * 4 + 3] = 255 // No transparency
 		}
 	}
+
+function exportImage()
+{
+	var download = document.createElement('a')
+		download.href = canvas.toDataURL('images/png')
+		download.download = 'dither.png'
+		download.click()
+}
