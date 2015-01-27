@@ -5,7 +5,7 @@ body {
 #load {
 	position: fixed;
 	top: 10px;
-	right: 10px;
+	left: 10px;
 
 	z-index: 1;
 }
@@ -13,14 +13,14 @@ body {
 #download {
 	position: fixed;
 	bottom: 10px;
-	right: 10px;
+	left: 10px;
 
 	z-index: 1;
 }
 
 #original {
 	position: absolute;
-	left: 0px;
+	right: 0px;
 	top: 0px;
 
 	z-index: 0;
@@ -28,7 +28,7 @@ body {
 
 #manipulated {
 	position: absolute;
-	left: 0px;
+	right: 0px;
 
 	z-index: 0;
 }

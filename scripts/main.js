@@ -6,17 +6,28 @@ var ctx = canvas.getContext('2d')
 
 var database = new Array()
 
-function init()
+function load()
 {
-	var image = new Image()
-		image.onload = loaded // No parenthesis so that we can pass the image as a parameter
-		image.src = 'test_images/cube.jpg'
+	var image = new Image() // This is what we'll pass along to other functions
+
+	var file = document.getElementById('load').files[0]
+	var reader = new FileReader()
+
+	reader.onloadend = function()
+	{
+		image.src = reader.result
+		
+		loaded(image)
+	}
+
+	if (file)
+	{
+		reader.readAsDataURL(file) // Reads the data as a URL
+	}
 }
 
-function loaded(event)
+function loaded(image)
 {
-	var image = event.target // Save the source image as a variable
-
 	// Resize the canvases to reflect the size of the source image
 	originalCanvas.width = image.width
 	originalCanvas.height = image.height
