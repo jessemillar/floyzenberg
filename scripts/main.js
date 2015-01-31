@@ -35,7 +35,13 @@ function loaded(image)
 	originalCanvas.height = image.height
 	canvas.width = image.width
 	canvas.height = image.height
-	canvas.style.top = image.height;
+	canvas.style.top = image.height
+
+	if (image.width > window.innerWidth)
+	{
+		originalCanvas.style.left = 0
+		canvas.style.left = 0
+	}
 
 	originalCtx.drawImage(image, 0, 0) // Display the original image in the left canvas
 	ctx.drawImage(image, 0, 0) // Display the original image in the right canvas for manipulation and display
